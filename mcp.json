@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ockto": {
+      "type": "http",
+      "url": "https://api.ockto.ai/mcp"
+    }
+  }
+}
