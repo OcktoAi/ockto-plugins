@@ -1,60 +1,55 @@
-# Ockto
+# Ockto plugins
 
-Cursor plugin that connects agents to [Ockto](https://ockto.ai) through Ockto's official remote [Model Context Protocol](https://modelcontextprotocol.io/) server.
+Plugins da [Ockto](https://ockto.ai) para agentes. Todos apontam para o MCP de produção `https://mcp.ockto.ai/mcp` (Streamable HTTP, stateless). A autenticação é OAuth 2.1: o cliente descobre o Authorization Server em `https://api.ockto.ai` pelo Protected Resource Metadata (`https://mcp.ockto.ai/.well-known/oauth-protected-resource/mcp`) e registra o próprio cliente (DCR). Não há client id, secret nem token neste repositório.
 
-Ockto is a multi-tenant platform for AI-driven sales funnels and lead management, with WhatsApp and Instagram channels. With this plugin, agents work on the signed-in member's organization: they can query the CRM, build journeys and automations, and set up AI employees and their knowledge brains.
+A fonte das skills é [`content/skills/`](content/skills/). [`scripts/copy-skills.sh`](scripts/copy-skills.sh) copia esse texto para `cursor/skills`, `claude/skills`, `chatgpt/skills` e `gemini/skills`.
 
-## Install
+Submeter a um diretório público é passo humano. Este repositório não publica em marketplace.
 
-1. Open **Cursor Settings → Plugins**.
-2. Search for **Ockto**.
-3. Click **Install**, then complete the Ockto sign-in and consent prompt.
+## Instalação
 
-## MCP
+| Cliente | O que o repositório entrega | Como instalar |
+| --- | --- | --- |
+| Cursor | Plugin em [`cursor/`](cursor/) | Copie `cursor/` para `~/.cursor/plugins/local/ockto` e recarregue. Em Team/Enterprise, um admin importa o repo em Dashboard → Plugins & MCPs. |
+| Claude Code | Plugin em [`claude/`](claude/) | `/plugin marketplace add OcktoAi/ockto-plugins` e `/plugin install ockto@ockto`. |
+| Claude.ai, Cowork, Desktop | Guia, sem manifest | Customize → Connectors → Add custom connector, URL `https://mcp.ockto.ai/mcp`. |
+| ChatGPT e Codex | Pacote em [`chatgpt/`](chatgpt/) | Marketplace do repo em [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). Conector avulso: Settings → Apps → Create. |
+| Gemini CLI | Extensão em [`gemini/`](gemini/) | `gemini extensions install` no caminho local de `gemini/`. |
 
-```json
-{
-  "mcpServers": {
-    "ockto": {
-      "type": "http",
-      "url": "https://api.ockto.ai/mcp"
-    }
-  }
-}
-```
+O detalhe de cada um está no README da pasta. Na primeira conexão, o membro escolhe a organização e os escopos. Deixe client id e client secret em branco.
 
-Auth is OAuth 2.1 with PKCE. Cursor opens the Ockto sign-in when the plugin connects; the member picks the organization and approves the requested access. Leave any OAuth client ID and secret blank.
+## Escopos
 
-## Before you connect
+`leads:read` `leads:write` `leads:delete`
+`journeys:read` `journeys:write` `journeys:delete`
+`assistants:read` `assistants:write` `assistants:delete`
+`businesses:read` `businesses:write` `businesses:delete`
+`automations:read` `automations:write` `automations:activate` `automations:delete`
+`conversations:read` `integrations:read` `analytics:read`
 
-You need an Ockto account and membership in an organization. Every tool call runs with the permissions of that member's role — the plugin can never do more than the member can do in the Ockto web app.
+O escopo é um limite a mais sobre o papel do membro na organização. Não substitui esse papel.
 
-## What agents can do
+## Segurança
 
-| Category | Capabilities |
-| --- | --- |
-| CRM | Contacts, contact channels, notes, and deals |
-| Journeys | Journeys, kanban stages, and leads (create, move, pin, remove) |
-| Automations | Automation flows (created as drafts), node types, runs, and activation |
-| AI employees | AI employees and the knowledge brains linked to them |
-| Knowledge | Brain sources and semantic search over brain content |
-| Insights | Conversations, dashboard metrics, and connected integrations |
+- OAuth 2.1 com PKCE no cliente. O access token fica no cliente, não em arquivo do plugin.
+- Não coloque `Authorization`, client secret nem bearer em `mcp.json`, `.mcp.json` ou `gemini-extension.json`.
+- Exclusão, remoção, desvínculo e `ativar_automacao` confirmam em dois passos. O argumento é `codigo_confirmacao`: a primeira chamada só descreve e devolve um código; a segunda repete os mesmos argumentos com esse código. O código expira em 120 segundos e vale uma vez.
+- A conexão pode ser revogada na Ockto.
 
-The hosted server is the source of truth for tool names and schemas. Tool names and descriptions are in Portuguese.
+## Suporte
 
-## Notes
+- Produto: https://ockto.ai
+- Servidor: https://mcp.ockto.ai/mcp
+- Issues: https://github.com/OcktoAi/ockto-plugins/issues
 
-- **Scopes:** `mcp:read` and `mcp:write`. They are an extra limit on top of the member's permissions, never a replacement for them.
-- **Confirmation:** destructive actions (delete, remove, unlink, activate automation) run only after a second call carrying a single-use confirmation code valid for 120 seconds.
-- **Revoking access:** connected apps can be reviewed and revoked in the Ockto web app at any time.
+## Documentação dos formatos
 
-## Docs
+- Cursor: https://cursor.com/docs/plugins e https://cursor.com/docs/plugins/building
+- Claude Code: https://code.claude.com/docs/en/plugins-reference, https://code.claude.com/docs/en/plugin-marketplaces e https://code.claude.com/docs/en/mcp
+- Conector do Claude.ai: https://claude.com/docs/connectors/custom/remote-mcp e https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp
+- ChatGPT/Codex: https://developers.openai.com/plugins/build/plugins, https://developers.openai.com/plugins/deploy/connect-chatgpt e https://agent-plugins.org/specification
+- Gemini CLI: https://geminicli.com/docs/extensions/reference/ e https://geminicli.com/docs/tools/mcp-server/
 
-- Ockto: https://ockto.ai
-- Server URL: https://api.ockto.ai/mcp
-
-Logo is Ockto's official mark.
-
-## License
+## Licença
 
 MIT

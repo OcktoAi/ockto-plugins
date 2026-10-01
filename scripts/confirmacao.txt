@@ -1,0 +1,12 @@
+ativar_automacao
+desvincular_cerebro_funcionario
+excluir_automacao
+excluir_cerebro
+excluir_contato
+excluir_etapa_jornada
+excluir_funcionario
+excluir_jornada
+excluir_negocio
+remover_canal_contato
+remover_fonte_cerebro
+remover_lead_jornada

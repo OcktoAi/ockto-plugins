@@ -1,0 +1,14 @@
+{
+  "name": "ockto",
+  "description": "Conecta o Cursor ao MCP da Ockto para consultar e alterar contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Ockto"
+  },
+  "homepage": "https://ockto.ai",
+  "repository": "https://github.com/OcktoAi/ockto-plugins",
+  "license": "MIT",
+  "keywords": ["ockto", "crm", "leads", "jornadas", "automacoes", "funcionarios-ia", "mcp"],
+  "logo": "assets/logo.png",
+  "mcpServers": "./mcp.json"
+}
