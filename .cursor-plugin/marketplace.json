@@ -1,0 +1,16 @@
+{
+  "name": "ockto",
+  "owner": {
+    "name": "Ockto"
+  },
+  "metadata": {
+    "description": "Plugin da Ockto para o Cursor."
+  },
+  "plugins": [
+    {
+      "name": "ockto",
+      "source": "cursor",
+      "description": "Conecta o Cursor ao MCP da Ockto para consultar e alterar contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização."
+    }
+  ]
+}

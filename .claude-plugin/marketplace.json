@@ -1,0 +1,15 @@
+{
+  "name": "ockto",
+  "owner": {
+    "name": "Ockto",
+    "url": "https://ockto.ai"
+  },
+  "description": "Plugin da Ockto para o Claude Code.",
+  "plugins": [
+    {
+      "name": "ockto",
+      "source": "./claude",
+      "description": "Conecta o Claude Code ao MCP da Ockto para consultar e alterar contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização."
+    }
+  ]
+}
