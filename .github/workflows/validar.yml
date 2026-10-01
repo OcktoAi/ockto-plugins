@@ -1,0 +1,13 @@
+name: validar
+
+on:
+  pull_request:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validar manifests e skills
+        run: bash scripts/validate.sh
