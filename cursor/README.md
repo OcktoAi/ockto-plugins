@@ -1,60 +1,31 @@
-# Ockto
+# Ockto no Cursor
 
-Cursor plugin that connects agents to [Ockto](https://ockto.ai) through Ockto's official remote [Model Context Protocol](https://modelcontextprotocol.io/) server.
+Plugin do Cursor. Aponta para o MCP de produção e traz as skills de uso.
 
-Ockto is a multi-tenant platform for AI-driven sales funnels and lead management, with WhatsApp and Instagram channels. With this plugin, agents work on the signed-in member's organization: they can query the CRM, build journeys and automations, and set up AI employees and their knowledge brains.
+Servidor: `https://mcp.ockto.ai/mcp`
 
-## Install
+Formato: [Cursor Plugin](https://cursor.com/docs/plugins/building) (`.cursor-plugin/plugin.json`, `mcp.json`, `skills/`). O marketplace da raiz está em [`.cursor-plugin/marketplace.json`](../.cursor-plugin/marketplace.json). Este repositório não envia o plugin ao marketplace público.
 
-1. Open **Cursor Settings → Plugins**.
-2. Search for **Ockto**.
-3. Click **Install**, then complete the Ockto sign-in and consent prompt.
+## Instalar
 
-## MCP
+Teste local, antes de qualquer publicação ([Test plugins locally](https://cursor.com/docs/plugins)):
 
-```json
-{
-  "mcpServers": {
-    "ockto": {
-      "type": "http",
-      "url": "https://api.ockto.ai/mcp"
-    }
-  }
-}
-```
+1. Copie esta pasta para `~/.cursor/plugins/local/ockto` (o conteúdo, com `.cursor-plugin/`, `mcp.json`, `skills/` e `assets/`).
+2. Recarregue a janela.
+3. Em Customize, confira o plugin `ockto` e conclua o login.
 
-Auth is OAuth 2.1 with PKCE. Cursor opens the Ockto sign-in when the plugin connects; the member picks the organization and approves the requested access. Leave any OAuth client ID and secret blank.
+Em plano Team ou Enterprise, um admin importa o repositório em Dashboard → Plugins & MCPs → Add Marketplace → Import from Repo. Isso não publica no diretório público.
 
-## Before you connect
+Sem o plugin, o mesmo servidor entra em Customize como MCP remoto, com a URL acima. Na primeira conexão o Cursor abre o consentimento da Ockto. Deixe client id e client secret em branco. Não há token neste repositório.
 
-You need an Ockto account and membership in an organization. Every tool call runs with the permissions of that member's role — the plugin can never do more than the member can do in the Ockto web app.
+## Skills
 
-## What agents can do
+- `conectar` — OAuth, escopos e canais conectados
+- `crm` — contatos, canais, notas e leads nas jornadas
+- `jornadas` — jornadas e etapas
+- `funcionarios` — funcionários de IA e cérebros
+- `automacoes` — rascunho, ativação e execuções
+- `conversas` — conversas e métricas
+- `negocios` — marcas da organização
 
-| Category | Capabilities |
-| --- | --- |
-| CRM | Contacts, contact channels, notes, and deals |
-| Journeys | Journeys, kanban stages, and leads (create, move, pin, remove) |
-| Automations | Automation flows (created as drafts), node types, runs, and activation |
-| AI employees | AI employees and the knowledge brains linked to them |
-| Knowledge | Brain sources and semantic search over brain content |
-| Insights | Conversations, dashboard metrics, and connected integrations |
-
-The hosted server is the source of truth for tool names and schemas. Tool names and descriptions are in Portuguese.
-
-## Notes
-
-- **Scopes:** `mcp:read` and `mcp:write`. They are an extra limit on top of the member's permissions, never a replacement for them.
-- **Confirmation:** destructive actions (delete, remove, unlink, activate automation) run only after a second call carrying a single-use confirmation code valid for 120 seconds.
-- **Revoking access:** connected apps can be reviewed and revoked in the Ockto web app at any time.
-
-## Docs
-
-- Ockto: https://ockto.ai
-- Server URL: https://api.ockto.ai/mcp
-
-Logo is Ockto's official mark.
-
-## License
-
-MIT
+O plugin não substitui o app da Ockto.

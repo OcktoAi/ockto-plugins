@@ -1,17 +1,14 @@
 {
   "name": "ockto",
-  "displayName": "Ockto",
-  "version": "1.0.0",
-  "description": "Manage Ockto journeys, automations, AI employees, knowledge brains and CRM leads from Cursor.",
+  "description": "Conecta o Cursor ao MCP da Ockto para consultar e alterar contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização.",
+  "version": "2.0.0",
   "author": {
     "name": "Ockto"
   },
   "homepage": "https://ockto.ai",
-  "repository": "https://github.com/OcktoAi/ockto-cursor-plugin",
+  "repository": "https://github.com/OcktoAi/ockto-plugins",
   "license": "MIT",
+  "keywords": ["ockto", "crm", "leads", "jornadas", "automacoes", "funcionarios-ia", "mcp"],
   "logo": "assets/logo.png",
-  "keywords": ["ockto", "crm", "leads", "journeys", "automations", "ai-employees", "whatsapp", "mcp"],
-  "category": "integrations",
-  "tags": ["ockto", "crm", "automations", "mcp"],
   "mcpServers": "./mcp.json"
 }
