@@ -1,0 +1,14 @@
+{
+  "name": "ockto",
+  "displayName": "Ockto",
+  "version": "2.0.0",
+  "description": "Conecta o Claude Code ao MCP da Ockto para consultar e alterar a organização do membro autenticado.",
+  "author": {
+    "name": "Ockto",
+    "url": "https://ockto.ai"
+  },
+  "homepage": "https://ockto.ai",
+  "repository": "https://github.com/OcktoAi/ockto-plugins",
+  "license": "MIT",
+  "keywords": ["ockto", "crm", "jornadas", "automacoes", "mcp"]
+}
