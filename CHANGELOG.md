@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0
+
+- Skills acompanham as 98 ferramentas do MCP: pausa e reativação, execução, amostra, biblioteca de agente, agenda, capacidades, sincronização de fonte, exclusão forçada de cérebro, notas, memória e importação de contatos.
+- Importação padrão mescla; substituir só se o usuário pedir. Arquivo, volume acima de 2000, upload de documento ou áudio, teste de nó, agente público, evento de agenda, credencial, SQL, exportação, domínio, equipe e billing ficam no console. Responder conversa, transferir, ligar funcionário a canal, páginas, saldo de créditos e membros não têm ferramenta.
+
 ## 2.1.0
 
 - Skills acompanham as 79 ferramentas do MCP: edição de automação por nó, leituras novas e `pagina`/`limite` (teto 50, com os tetos menores de cada ferramenta).
