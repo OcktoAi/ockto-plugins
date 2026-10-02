@@ -37,7 +37,18 @@ Deixe client id e client secret em branco.
 
 Cada ferramenta exige o escopo dela. Sem esse escopo a chamada é recusada. Escopo não substitui a permissão do membro.
 
-`listar_integracoes` (`integrations:read`) lista canais (WhatsApp, Instagram, Messenger) e conexões de automação: nome, provedor, status e identificador. Não devolve credencial. `recorte` opcional: `canais` ou `conexoes`.
+## Canais e conexões
+
+Estas ferramentas só leem e não devolvem credencial. `pagina` começa em 1, `limite` tem padrão 20 e teto 50. A resposta traz `total`, `pagina`, `limite` e `tem_mais`.
+
+- `listar_integracoes` (`integrations:read`) é a visão geral: canais (WhatsApp, Instagram, Messenger) e conexões de automação, com nome, provedor, status e identificador. `busca` opcional. `recorte` opcional: `canais` ou `conexoes`.
+- `listar_canais` (`integrations:read`; com status ao vivo, consulta a Meta) lista só canais de atendimento. `provedor`: `whatsapp`, `instagram`, `facebook`, `meta` (instagram e facebook), `canais` ou `todos` (padrão). O registro traz funcionário e, no WhatsApp, a jornada padrão. Com `conexao_id` e `provedor` `whatsapp` ou `todos`, o status ao vivo sai para a Graph API da Meta.
+- `obter_saude_canais` (`integrations:read`) lê o status monitorado. `conexao_id` opcional restringe a uma conexão. Não força checagem externa.
+- `listar_templates_whatsapp` (`integrations:read`) lista templates armazenados de uma conexão WhatsApp. Exige `conexao_id` (de `listar_canais`). Não sincroniza com a Meta.
+- `listar_provedores_conexao` (`integrations:read`) lista o catálogo de provedores (Slack, Jira, HTTP, banco). Não devolve id de conexão já criada.
+- `obter_conexao` (`integrations:read`) detalha uma conexão de automação, sem credencial. Exige `conexao_id` de `listar_integracoes` com `recorte` `conexoes`.
+
+Valor mascarado `***` (ou URL `://***@`) não é o segredo. Não o reenvie para gravar por cima.
 
 ## Confirmação em dois passos
 
@@ -48,3 +59,15 @@ Cada ferramenta exige o escopo dela. Sem esse escopo a chamada é recusada. Esco
 3. O código expira em 120 segundos e vale uma vez. Qualquer argumento diferente invalida o código. Para obter outro, chame de novo sem `codigo_confirmacao`.
 
 Não invente o código e não reutilize código de outra ferramenta.
+
+## Fora do MCP
+
+Não há ferramenta para isto. Mande o usuário ao console da Ockto (https://ockto.ai):
+
+- credencial, token, senha e fluxo de autorização OAuth
+- SQL livre
+- equipe, papéis, convites, conta, MFA e senha
+- escrita de billing
+- domínios
+- exportação em massa
+- super-admin

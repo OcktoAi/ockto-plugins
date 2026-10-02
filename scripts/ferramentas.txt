@@ -68,3 +68,12 @@ obter_etapa
 obter_metricas_jornada
 obter_metricas_funcionarios
 obter_analytics_periodo
+listar_canais
+listar_capacidades_conexao_funcionario
+listar_modelos_funcionario
+listar_provedores_conexao
+listar_templates_whatsapp
+obter_agenda_funcionario
+obter_conexao
+obter_modelo_funcionario
+obter_saude_canais
