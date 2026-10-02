@@ -55,3 +55,7 @@ remover_fonte_cerebro
 remover_lead_jornada
 reordenar_etapas_jornada
 vincular_cerebro_funcionario
+editar_automacao
+estimar_custo_automacao
+listar_gatilhos_automacao
+previsualizar_cron
