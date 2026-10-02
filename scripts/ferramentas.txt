@@ -92,3 +92,7 @@ vincular_agenda_funcionario
 desvincular_agenda_funcionario
 sincronizar_fonte_cerebro
 excluir_cerebro_forcado
+editar_nota_contato
+excluir_nota_contato
+excluir_memoria_contato
+importar_contatos

@@ -17,3 +17,6 @@ excluir_agente_biblioteca
 desvincular_agenda_funcionario
 sincronizar_fonte_cerebro
 excluir_cerebro_forcado
+excluir_nota_contato
+excluir_memoria_contato
+importar_contatos
