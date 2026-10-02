@@ -10,5 +10,10 @@
   "homepage": "https://ockto.ai",
   "repository": "https://github.com/OcktoAi/ockto-plugins",
   "license": "MIT",
-  "keywords": ["ockto", "crm", "jornadas", "automacoes", "mcp"]
+  "keywords": ["ockto", "crm", "jornadas", "automacoes", "mcp"],
+  "icon": "./.claude-plugin/icon.svg",
+  "documentationUrl": "https://github.com/OcktoAi/ockto-plugins/blob/develop/claude/README.md",
+  "supportUrl": "https://www.ockto.ai/suporte",
+  "privacyPolicyUrl": "https://www.ockto.ai/privacidade",
+  "termsOfServiceUrl": "https://www.ockto.ai/termos"
 }
