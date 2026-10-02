@@ -10,3 +10,6 @@ excluir_negocio
 remover_canal_contato
 remover_fonte_cerebro
 remover_lead_jornada
+reativar_automacao
+excluir_execucao_automacao
+resetar_mapeamento_no_automacao

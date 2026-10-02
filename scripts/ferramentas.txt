@@ -77,3 +77,10 @@ obter_agenda_funcionario
 obter_conexao
 obter_modelo_funcionario
 obter_saude_canais
+desativar_automacao
+reativar_automacao
+cancelar_execucao_automacao
+excluir_execucao_automacao
+duplicar_automacao
+salvar_amostra_no_automacao
+resetar_mapeamento_no_automacao
