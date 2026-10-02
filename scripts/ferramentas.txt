@@ -59,3 +59,12 @@ editar_automacao
 estimar_custo_automacao
 listar_gatilhos_automacao
 previsualizar_cron
+listar_leads_jornada
+listar_notas_contato
+obter_timeline_contato
+listar_memorias_contato
+listar_conversas_contato
+obter_etapa
+obter_metricas_jornada
+obter_metricas_funcionarios
+obter_analytics_periodo
