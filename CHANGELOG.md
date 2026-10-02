@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1
+
+- Metadados de listagem. O MCP permanece em `https://mcp.ockto.ai/mcp` e as skills não mudam.
+- ChatGPT: subtítulo de até 30 caracteres e URLs de site, suporte, privacidade e termos.
+- Claude: política, termos, documentação, suporte e ícone do diretório.
+- Gemini: workflow que empacota `gemini/` num `ockto.tar.gz` na release de uma tag `v*`.
+
 ## 2.0.0
 
 - Breaking: o servidor MCP passa de `https://api.ockto.ai/mcp` para `https://mcp.ockto.ai/mcp`.
