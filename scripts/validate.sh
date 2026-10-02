@@ -7,6 +7,7 @@ cd "$root"
 python3 - "$root" << 'PY'
 import json
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 root = Path(sys.argv[1])
@@ -55,16 +56,53 @@ if gemini:
     if gemini.get("contextFileName") != "GEMINI.md":
         errors.append("gemini/gemini-extension.json: contextFileName precisa ser GEMINI.md")
 
-for rel, doc, key in (
+versioned = (
     ("cursor/.cursor-plugin/plugin.json", cursor_plugin, "version"),
     ("claude/.claude-plugin/plugin.json", claude_plugin, "version"),
     ("chatgpt/plugin.json", chatgpt_plugin, "version"),
     ("gemini/gemini-extension.json", gemini, "version"),
-):
+)
+seen = {}
+for rel, doc, key in versioned:
     if doc and doc.get("name") != "ockto":
         errors.append(f"{rel}: name precisa ser ockto")
-    if doc and doc.get(key) != "2.0.0":
-        errors.append(f"{rel}: versão precisa ser 2.0.0")
+    if doc:
+        seen[rel] = doc.get(key)
+versions = {value for value in seen.values()}
+if len(seen) != 4 or len(versions) != 1 or None in versions or "" in versions:
+    detail = ", ".join(f"{rel}={value!r}" for rel, value in seen.items())
+    errors.append(f"versões divergem: {detail}")
+
+if chatgpt_plugin:
+    interface = chatgpt_plugin.get("extensions", {}).get("com.openai", {}).get("interface", {})
+    short = interface.get("shortDescription")
+    if not isinstance(short, str) or len(short) > 30:
+        errors.append(
+            f"chatgpt/plugin.json: shortDescription tem {len(short) if isinstance(short, str) else 'tipo inválido'} caracteres; o máximo é 30"
+        )
+    for field in ("websiteURL", "supportURL", "privacyPolicyURL", "termsOfServiceURL"):
+        if not interface.get(field):
+            errors.append(f"chatgpt/plugin.json: falta {field}")
+
+if claude_plugin:
+    for field in ("privacyPolicyUrl", "termsOfServiceUrl", "icon"):
+        if not claude_plugin.get(field):
+            errors.append(f"claude/.claude-plugin/plugin.json: falta {field}")
+    icon = claude_plugin.get("icon")
+    if isinstance(icon, str) and icon:
+        icon_rel = icon[2:] if icon.startswith("./") else icon
+        icon_path = root / "claude" / icon_rel
+        if not icon_path.is_file():
+            errors.append(f"claude/.claude-plugin/plugin.json: ícone não existe em {icon_path.relative_to(root)}")
+        else:
+            svg = icon_path.read_text(encoding="utf-8")
+            try:
+                ET.fromstring(svg)
+            except ET.ParseError as exc:
+                errors.append(f"{icon_path.relative_to(root)}: SVG inválido ({exc})")
+            lowered = svg.lower()
+            if any(token in lowered for token in ("<style", "class=", "<script", "href=", "url(")):
+                errors.append(f"{icon_path.relative_to(root)}: SVG tem <style>, class=, <script> ou referência externa")
 
 if chatgpt_plugin and chatgpt_plugin.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
     errors.append("chatgpt/plugin.json: $schema divergente do Agent Plugins 1.0.0")

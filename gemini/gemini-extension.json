@@ -1,6 +1,6 @@
 {
   "name": "ockto",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Conecta o Gemini CLI ao MCP da Ockto para consultar e alterar a organização do membro autenticado.",
   "mcpServers": {
     "ockto": {

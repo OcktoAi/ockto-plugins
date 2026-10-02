@@ -1,7 +1,8 @@
 {
   "name": "ockto",
   "owner": {
-    "name": "Ockto"
+    "name": "Ockto",
+    "email": "ockto@ocklabs.com"
   },
   "metadata": {
     "description": "Plugin da Ockto para o Cursor."
