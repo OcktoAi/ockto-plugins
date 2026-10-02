@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ockto",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Conecta o ChatGPT e o Codex ao MCP da Ockto para consultar e alterar a organização do membro autenticado.",
   "author": {
     "name": "Ockto",
@@ -15,12 +15,15 @@
     "com.openai": {
       "interface": {
         "displayName": "Ockto",
-        "shortDescription": "CRM, jornadas, automações e funcionários de IA da Ockto.",
+        "shortDescription": "CRM, jornadas e automações",
         "longDescription": "Consulta e altera contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização autenticada no MCP da Ockto.",
         "developerName": "Ockto",
         "category": "Productivity",
         "capabilities": ["Read", "Write"],
-        "websiteURL": "https://ockto.ai",
+        "websiteURL": "https://www.ockto.ai",
+        "supportURL": "https://www.ockto.ai/suporte",
+        "privacyPolicyURL": "https://www.ockto.ai/privacidade",
+        "termsOfServiceURL": "https://www.ockto.ai/termos",
         "logo": "./assets/logo.png",
         "defaultPrompt": [
           "Liste os contatos recentes da minha organização na Ockto.",

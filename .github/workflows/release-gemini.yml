@@ -1,0 +1,31 @@
+name: release-gemini
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Empacotar a extensão
+        run: tar -czf ockto.tar.gz -C gemini .
+
+      - name: Anexar o arquivo na release da tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" ockto.tar.gz --clobber
+          else
+            gh release create "$tag" ockto.tar.gz \
+              --title "$tag" \
+              --notes "Extensão do Gemini CLI. O arquivo ockto.tar.gz traz o conteúdo de gemini/ na raiz."
+          fi
