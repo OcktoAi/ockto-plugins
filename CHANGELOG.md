@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0
+
+- Skills acompanham as 79 ferramentas do MCP: edição de automação por nó, leituras novas e `pagina`/`limite` (teto 50, com os tetos menores de cada ferramenta).
+- Segredo mascarado `***` não deve ser reenviado. Credencial, OAuth, SQL livre, equipe, billing, domínio, exportação e super-admin ficam no console.
+
 ## 2.0.1
 
 - Metadados de listagem. O MCP permanece em `https://mcp.ockto.ai/mcp` e as skills não mudam.
