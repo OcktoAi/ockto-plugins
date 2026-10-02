@@ -15,7 +15,7 @@ Em `listar_conversas` e `listar_conversas_contato`, `pagina` começa em 1, `limi
 - `listar_conversas_contato` (`conversations:read`, só lê) lista as conversas de um contato. Exige `contato_id` (de `obter_contato`). `pagina` e `limite` (padrão 20, teto 50). O histórico de uma thread continua em `obter_conversa`.
 - `obter_conversa` (`conversations:read`, só lê) devolve o histórico de uma conversa. Exige `conversa_id`. Página 1 traz as mensagens mais recentes. `limite` (teto 30) e `pagina` são opcionais. A resposta traz `total`, `pagina` e `temMaisAntigas`.
 
-Não há ferramenta para enviar mensagem.
+Não há ferramenta para responder conversa, transferir conversa ou ligar funcionário a canal. Isso fica no console (https://console.ockto.ai). Não invente essas ferramentas.
 
 ## Métricas
 
