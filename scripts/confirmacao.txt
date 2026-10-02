@@ -13,3 +13,7 @@ remover_lead_jornada
 reativar_automacao
 excluir_execucao_automacao
 resetar_mapeamento_no_automacao
+excluir_agente_biblioteca
+desvincular_agenda_funcionario
+sincronizar_fonte_cerebro
+excluir_cerebro_forcado
