@@ -25,7 +25,7 @@ O detalhe de cada um está no README da pasta. Na primeira conexão, o membro es
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`
 `automations:read` `automations:write` `automations:activate` `automations:delete`
-`conversations:read` `integrations:read` `analytics:read`
+`conversations:read` `conversations:write` `integrations:read` `analytics:read` `organization:read`
 
 O escopo é um limite a mais sobre o papel do membro na organização. Não substitui esse papel.
 
@@ -33,7 +33,7 @@ O escopo é um limite a mais sobre o papel do membro na organização. Não subs
 
 - OAuth 2.1 com PKCE no cliente. O access token fica no cliente, não em arquivo do plugin.
 - Não coloque `Authorization`, client secret nem bearer em `mcp.json`, `.mcp.json` ou `gemini-extension.json`.
-- Ativar e reativar automação, importar contatos, sincronizar fonte, resetar mapeamento e as ferramentas de exclusão, remoção e desvínculo confirmam em dois passos quando a skill diz isso. O argumento é `codigo_confirmacao`: a primeira chamada só descreve e devolve um código; a segunda repete os mesmos argumentos com esse código. O código expira em 120 segundos e vale uma vez.
+- Responder conversa, ativar e reativar automação, importar contatos, sincronizar fonte, resetar mapeamento e as ferramentas de exclusão, remoção e desvínculo confirmam em dois passos quando a skill diz isso. O argumento é `codigo_confirmacao`: a primeira chamada só descreve e devolve um código; a segunda repete os mesmos argumentos com esse código. O código expira em 120 segundos e vale uma vez.
 - A conexão pode ser revogada na Ockto.
 
 ## Suporte

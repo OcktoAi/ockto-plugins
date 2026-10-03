@@ -20,3 +20,4 @@ excluir_cerebro_forcado
 excluir_nota_contato
 excluir_memoria_contato
 importar_contatos
+responder_conversa

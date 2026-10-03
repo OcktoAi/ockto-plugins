@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+
+- Skills acompanham as 107 ferramentas do MCP: responder conversa com confirmação (atendente humano, sem crédito de IA, janela de 24h), transferir para humano ou IA, atribuir responsável, fechar, reabrir, marcar como lida, listar membros e limites do plano.
+- Escopos `conversations:write` e `organization:read`. Conexão antiga precisa reconectar e consentir de novo.
+- Template fora da janela, anexo, canal do funcionário, páginas, convite e pagamento continuam no console.
+
 ## 2.2.0
 
 - Skills acompanham as 98 ferramentas do MCP: pausa e reativação, execução, amostra, biblioteca de agente, agenda, capacidades, sincronização de fonte, exclusão forçada de cérebro, notas, memória e importação de contatos.
