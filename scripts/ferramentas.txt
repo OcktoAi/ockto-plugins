@@ -96,3 +96,12 @@ editar_nota_contato
 excluir_nota_contato
 excluir_memoria_contato
 importar_contatos
+responder_conversa
+transferir_conversa_para_humano
+transferir_conversa_para_ia
+atribuir_responsavel_conversa
+fechar_conversa
+reabrir_conversa
+marcar_conversa_como_lida
+listar_membros_organizacao
+obter_limites_plano

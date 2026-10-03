@@ -47,7 +47,8 @@ Não coloque client id, secret nem header. A descoberta OAuth parte de `https://
 - `jornadas` — jornadas e etapas
 - `funcionarios` — funcionários de IA e cérebros
 - `automacoes` — rascunho, ativação e execuções
-- `conversas` — conversas e métricas
+- `conversas` — ler, responder, transferir e métricas
+- `organizacao` — membros e limites do plano
 - `negocios` — marcas da organização
 
 O plugin não substitui o app da Ockto. Este repositório não envia o plugin a marketplace da Anthropic.

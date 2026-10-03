@@ -33,9 +33,11 @@ Deixe client id e client secret em branco.
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`
 `automations:read` `automations:write` `automations:activate` `automations:delete`
-`conversations:read` `integrations:read` `analytics:read`
+`conversations:read` `conversations:write` `integrations:read` `analytics:read` `organization:read`
 
 Cada ferramenta exige o escopo dela. Sem esse escopo a chamada é recusada. Escopo não substitui a permissão do membro.
+
+`conversations:write` e `organization:read` só entram num consentimento novo. Quem já conectou não os recebe na renovação do token. Se a ferramenta não estiver na lista do cliente, ou a chamada responder `insufficient_scope` (a ferramenta exige o escopo), reconecte o MCP e aceite esses escopos na tela de consentimento.
 
 ## Canais e conexões
 
@@ -52,7 +54,7 @@ Valor mascarado `***` (ou URL `://***@`) não é o segredo. Não o reenvie para 
 
 ## Confirmação em dois passos
 
-A skill de cada ferramenta diz quando a primeira chamada só descreve. Entram aí ativar e reativar automação, importar contatos, sincronizar fonte de cérebro, resetar mapeamento de nó e as ferramentas de exclusão, remoção e desvínculo. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
+A skill de cada ferramenta diz quando a primeira chamada só descreve. Entram aí `responder_conversa`, ativar e reativar automação, importar contatos, sincronizar fonte de cérebro, resetar mapeamento de nó e as ferramentas de exclusão, remoção e desvínculo. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
 
 1. Chame sem `codigo_confirmacao`. A resposta descreve o efeito e devolve um código.
 2. Mostre esse efeito ao usuário. Só então chame de novo com os mesmos argumentos e `codigo_confirmacao` igual ao código recebido.
@@ -70,10 +72,14 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - SQL livre
 - exportação em massa
 - domínios
-- equipe, papéis, convites, conta, MFA e senha
-- billing
+- convite, papel, remoção de membro, conta, MFA e senha
+- pagamento, fatura e troca de plano
 - agente de biblioteca com visibilidade pública
 - eventos de agenda
 - super-admin
+- ligar funcionário de IA a um canal de atendimento
+- páginas
+- template de WhatsApp com a janela de 24h fechada
+- anexo e mídia na conversa
 
-O MCP também não responde conversa, não transfere conversa, não liga funcionário a canal, não mexe em páginas, não mostra saldo de créditos e não lista membros. Não invente ferramenta para isso.
+Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros e limites do plano, inclusive créditos restantes, estão na skill `organizacao`.
