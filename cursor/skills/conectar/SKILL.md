@@ -111,4 +111,4 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - páginas
 - anexo e mídia na conversa
 
-Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros e limites do plano, inclusive créditos restantes, estão na skill `organizacao`.
+Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`.
