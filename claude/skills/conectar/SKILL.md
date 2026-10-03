@@ -99,7 +99,7 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - teste de nó de automação
 - SQL livre
 - exportação em massa
-- domínios
+- criar domínio, DNS, repetir a configuração e excluir domínio
 - convite, papel, remoção de membro, conta, MFA e senha
 - pagamento, fatura e troca de plano
 - agente de biblioteca com visibilidade pública
@@ -108,7 +108,7 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - conectar e desconectar canal, e o token desse canal
 - excluir template de WhatsApp
 - enviar template de WhatsApp na conversa (janela de 24h fechada)
-- páginas
+- conteúdo HTML, CSS e JavaScript da página (o editor da Ockto)
 - anexo e mídia na conversa
 
-Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`.
+Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`. Páginas, formulários externos e leitura de domínios estão na skill `paginas`.

@@ -24,3 +24,9 @@ responder_conversa
 vincular_funcionario_canal
 desvincular_funcionario_canal
 criar_template_whatsapp
+publicar_pagina
+despublicar_pagina
+excluir_pagina
+criar_formulario_externo
+atualizar_formulario_externo
+excluir_formulario_externo
