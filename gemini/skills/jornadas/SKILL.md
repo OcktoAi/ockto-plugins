@@ -5,7 +5,7 @@ description: Consulta e altera jornadas e etapas do kanban na Ockto. Leads dentr
 
 # Jornadas e etapas
 
-A organização é a do consentimento. Para colocar, mover, fixar ou tirar um lead, use a skill `crm`.
+A organização é a do consentimento. Para colocar, mover, fixar ou tirar um lead, use a skill `crm`. Páginas, formulários externos e os domínios para publicar: skill `paginas`. Pixels ligados à jornada: skill `pixels`.
 
 Nas listagens, `pagina` começa em 1 e `limite` tem teto 50. A resposta traz `total`, `pagina`, `limite` e `tem_mais`.
 

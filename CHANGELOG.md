@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.5.0
+
+- Skills acompanham as 150 ferramentas do MCP: páginas e formulários externos, pixels de integração, chat bubble, link direto e leitura de domínios.
+- Escopos `pages:read`, `pages:write`, `pages:publish`, `pages:delete`, `pixels:read`, `pixels:write`, `pixels:delete` e `domains:read`. Conexão antiga precisa reconectar e consentir de novo. Chat bubble e link direto usam `integrations:read` e `integrations:write`.
+- Publicar página exige domínio com `pronto_para_publicar`. Excluir página ou formulário com etapa tira os leads da jornada. Criar formulário cria etapa. HTML, pixel manual, avatar e criar domínio continuam no console.
+- A etapa WhatsApp de vincular e desvincular funcionário é tentativa. O extrato aceita a carteira `PENDING`. Contato já na etapa não reprocessa; mover para a mesma etapa não faz nada.
+
 ## 2.4.0
 
 - Skills acompanham as 113 ferramentas do MCP: vincular e desvincular funcionário de canal com confirmação, sincronizar e criar template de WhatsApp, saldo e extrato de créditos.
