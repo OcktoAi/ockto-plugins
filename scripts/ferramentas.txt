@@ -105,3 +105,9 @@ reabrir_conversa
 marcar_conversa_como_lida
 listar_membros_organizacao
 obter_limites_plano
+vincular_funcionario_canal
+desvincular_funcionario_canal
+sincronizar_templates_whatsapp
+criar_template_whatsapp
+obter_saldo_creditos
+listar_transacoes_creditos

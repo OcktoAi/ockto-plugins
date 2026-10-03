@@ -35,7 +35,7 @@ A leitura é `listar_modelos_funcionario` e `obter_modelo_funcionario`. A escrit
 - `vincular_agenda_funcionario` (`assistants:write`) aponta a agenda para uma conexão Google Calendar que já existe. Exige `funcionario_id` e `conexao_id`. Não inicia OAuth. Repetir o mesmo `conexao_id` não cria outra conexão. Conexão nova fica no console (https://console.ockto.ai/funcionarios).
 - `desvincular_agenda_funcionario` (`assistants:write`, destrutiva) tira o vínculo da agenda. A conexão continua na organização. Exige `funcionario_id`. Confirmação em dois passos. A primeira chamada, sem `codigo_confirmacao`, mostra o `funcionario_id` e diz que a conexão não é apagada. A segunda repete o mesmo `funcionario_id` com `codigo_confirmacao`. 120 segundos, uso único.
 
-Evento de agenda (criar ou apagar) fica no console. Ligar o funcionário a um canal de atendimento também: o MCP não tem essa ferramenta.
+Evento de agenda (criar ou apagar) fica no console. Trocar ou tirar o funcionário de um canal de atendimento está na skill `conectar` (`vincular_funcionario_canal`, `desvincular_funcionario_canal`). O `funcionario_id` sai de `listar_funcionarios`.
 
 Métricas de volume: `obter_metricas_funcionarios` (skill `conversas`).
 

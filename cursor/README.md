@@ -20,13 +20,13 @@ Sem o plugin, o mesmo servidor entra em Customize como MCP remoto, com a URL aci
 
 ## Skills
 
-- `conectar` — OAuth, escopos e canais conectados
+- `conectar` — OAuth, escopos, funcionário do canal e templates
 - `crm` — contatos, canais, notas e leads nas jornadas
 - `jornadas` — jornadas e etapas
 - `funcionarios` — funcionários de IA e cérebros
 - `automacoes` — rascunho, ativação e execuções
 - `conversas` — ler, responder, transferir e métricas
-- `organizacao` — membros e limites do plano
+- `organizacao` — membros, limites do plano, saldo e extrato de créditos
 - `negocios` — marcas da organização
 
 O plugin não substitui o app da Ockto.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.0
+
+- Skills acompanham as 113 ferramentas do MCP: vincular e desvincular funcionário de canal com confirmação, sincronizar e criar template de WhatsApp, saldo e extrato de créditos.
+- Escopos `integrations:write` e `billing:read`. Conexão antiga precisa reconectar e consentir de novo.
+- `adicionar_contato_jornada` avisa as ações da etapa: webhook de entrada e de saída, template de WhatsApp aprovado, Mailchimp e ActiveCampaign.
+- Conectar e desconectar canal, token, excluir template, enviar template na conversa e compra de créditos continuam no console.
+
 ## 2.3.0
 
 - Skills acompanham as 107 ferramentas do MCP: responder conversa com confirmação (atendente humano, sem crédito de IA, janela de 24h), transferir para humano ou IA, atribuir responsável, fechar, reabrir, marcar como lida, listar membros e limites do plano.
