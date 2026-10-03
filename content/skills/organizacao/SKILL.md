@@ -21,7 +21,7 @@ Saldo, resumo do período e extrato. Sem cartão, fatura, id de gateway, e-mail 
 
 - `obter_saldo_creditos` (`billing:read`, só lê) devolve `saldo` e `resumo`. O saldo traz `creditos_mensais`, `limite_mensal`, `creditos_adicionais`, `adicionais_usados`, `limite_adicionais`, `total` e `ultimo_reset`. O resumo traz `creditados`, `debitados`, `resets`, `por_motivo` (`quantidade` e `total` de cada motivo) e `periodo` (`de`, `ate`). `de` e `ate` são ISO 8601, opcionais, e valem só para o resumo. O saldo é o atual, com ou sem período.
 
-- `listar_transacoes_creditos` (`billing:read`, só lê) lista o extrato. `pagina` começa em 1. `limite` tem padrão 10 e teto 50. A resposta traz `transacoes`, `total`, `pagina`, `limite` e `tem_mais`. Cada item traz `id`, `tipo`, `carteira`, `valor`, `saldo_depois`, `motivo` e `criado_em`. Filtros opcionais: `de` e `ate` (ISO 8601), `carteira` (`MONTHLY` ou `ADDITIONAL`), `tipo` (entryType, por exemplo `DEBIT` ou `CREDIT`) e `motivo` (reasonCode). Sem descrição livre, metadata, e-mail, sourceId ou id de pagamento.
+- `listar_transacoes_creditos` (`billing:read`, só lê) lista o extrato. `pagina` começa em 1. `limite` tem padrão 10 e teto 50. A resposta traz `transacoes`, `total`, `pagina`, `limite` e `tem_mais`. Cada item traz `id`, `tipo`, `carteira`, `valor`, `saldo_depois`, `motivo` e `criado_em`. Filtros opcionais: `de` e `ate` (ISO 8601), `carteira` (`MONTHLY`, `ADDITIONAL` ou `PENDING`; `PENDING` é a dívida), `tipo` (entryType, por exemplo `DEBIT` ou `CREDIT`) e `motivo` (reasonCode). Sem descrição livre, metadata, e-mail, sourceId ou id de pagamento.
 
 Nenhuma das duas pede `codigo_confirmacao`.
 

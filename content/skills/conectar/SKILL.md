@@ -70,11 +70,11 @@ Estas ferramentas trocam quem atende um canal já conectado. Conectar o canal, d
 
 - `vincular_funcionario_canal` (`integrations:write`; repetir o mesmo funcionário não acumula). Exige `canal`, `canal_id` e `funcionario_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta só descreve: canal (nome, identificador e id), funcionário atual e funcionário novo, e o efeito na jornada. Mostre canal, atual e novo ao usuário e espere o ok. A segunda chamada repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 
-No WhatsApp com jornada padrão, a etapa WhatsApp dessa jornada passa a ter o funcionário novo como responsável. Se a etapa não existir, ela é criada. Sem jornada padrão, nenhuma etapa muda. No Instagram e no Facebook, só muda o funcionário vinculado ao canal.
+No WhatsApp com jornada padrão, a troca da etapa WhatsApp é tentativa. Se a sincronização der certo, a etapa passa a ter o funcionário novo como responsável e é criada se não existir. Se falhar, o vínculo do canal permanece e a etapa fica para o webhook. Sem jornada padrão, nenhuma etapa muda. No Instagram e no Facebook, só muda o funcionário vinculado ao canal.
 
 - `desvincular_funcionario_canal` (`integrations:write`, destrutiva; repetir não acumula). Tira o funcionário de IA. Exige `canal` e `canal_id`. Não desconecta o canal. Confirmação em dois passos, no mesmo formato: a primeira chamada mostra canal, funcionário atual e o estado novo (nenhum funcionário de IA). Mostre canal, atual e novo ao usuário antes da segunda chamada, com os mesmos argumentos e `codigo_confirmacao`. 120 segundos, uso único.
 
-No WhatsApp com jornada padrão, a etapa WhatsApp deixa de ter responsável de IA. Nas mensagens novas da instância, o dono da conta fica responsável e a IA não responde. Sem jornada padrão, nenhuma etapa muda, e as mensagens novas seguem a mesma regra. No Instagram e no Facebook, nenhum funcionário de IA responde o canal; conversas novas ficam com o dono da organização. Conversa que já tem funcionário próprio não é reescrita.
+No WhatsApp, nas mensagens novas da instância o dono da conta fica responsável e a IA não responde. Com jornada padrão, a etapa WhatsApp deixa de ter responsável de IA só se a sincronização der certo; se falhar, a etapa fica para o webhook. Sem jornada padrão, nenhuma etapa muda. No Instagram e no Facebook, nenhum funcionário de IA responde o canal e conversas novas ficam com o dono da organização.
 
 ## Templates de WhatsApp
 
@@ -84,7 +84,7 @@ No WhatsApp com jornada padrão, a etapa WhatsApp deixa de ter responsável de I
 
 Exige `canal_id`, `nome`, `idioma` (por exemplo `pt_BR`), `categoria` e `corpo`. `categoria` só aceita `MARKETING` ou `UTILITY`. Opcionais: `cabecalho`, `rodape`, `exemplos` (lista de textos das variáveis `{{1}}`, `{{2}}` do corpo) e `botoes`.
 
-Botões: no máximo 3. Cada item tem `tipo` (`QUICK_REPLY` ou `URL`) e `texto`. `URL` exige `url`. Botão de URL não combina com outro botão. A API recusa nome acima de 40 caracteres, corpo acima de 1024, cabeçalho ou rodapé acima de 60, texto de botão acima de 25, URL acima de 2000 ou inválida, e mais de 20 exemplos. A confirmação mostra o nome enviado. A API grava minúsculas, sem acento, com espaço virando `_`.
+Botões: no máximo 3. Cada item tem `tipo` (`QUICK_REPLY` ou `URL`) e `texto`. `URL` exige `url`. Botão de URL não combina com outro botão. A API recusa nome acima de 40 caracteres, corpo acima de 1024, cabeçalho ou rodapé acima de 60, texto de botão acima de 25, URL acima de 2000 e mais de 20 exemplos. A confirmação mostra o nome enviado. A API grava minúsculas, sem acento, com espaço virando `_`.
 
 Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra canal, nome, idioma, categoria e o corpo entre aspas, mais cabeçalho, rodapé e botões quando houver, e avisa que o template vai para revisão da Meta. Mostre o corpo exato ao usuário e espere o ok. A segunda chamada repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 
