@@ -103,3 +103,5 @@ atribuir_responsavel_conversa
 fechar_conversa
 reabrir_conversa
 marcar_conversa_como_lida
+listar_membros_organizacao
+obter_limites_plano
