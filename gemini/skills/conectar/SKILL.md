@@ -109,6 +109,7 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - excluir template de WhatsApp
 - enviar template de WhatsApp na conversa (janela de 24h fechada)
 - conteúdo HTML, CSS e JavaScript da página (o editor da Ockto)
+- pixel manual com script
 - anexo e mídia na conversa
 
-Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`. Páginas, formulários externos e leitura de domínios estão na skill `paginas`.
+Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`. Páginas, formulários externos e leitura de domínios estão na skill `paginas`. Pixels de integração estão na skill `pixels`.

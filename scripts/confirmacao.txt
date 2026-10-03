@@ -30,3 +30,8 @@ excluir_pagina
 criar_formulario_externo
 atualizar_formulario_externo
 excluir_formulario_externo
+criar_pixel
+atualizar_pixel
+associar_pixel_jornadas
+excluir_pixel
+desassociar_pixel_jornada

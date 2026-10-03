@@ -126,3 +126,15 @@ atualizar_formulario_externo
 excluir_formulario_externo
 listar_dominios
 obter_dominio
+listar_pixels
+obter_pixel
+listar_servicos_pixel
+obter_preview_pixel
+verificar_pixel
+criar_pixel
+atualizar_pixel
+associar_pixel_jornadas
+excluir_pixel
+desassociar_pixel_jornada
+listar_pixels_jornada
+listar_jornadas_pixel
