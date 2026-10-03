@@ -1,6 +1,6 @@
 ---
 name: conectar
-description: Liga o cliente ao MCP da Ockto em https://mcp.ockto.ai/mcp, com OAuth 2.1 e escopos granulares, sem gravar token.
+description: Liga o cliente ao MCP da Ockto em https://mcp.ockto.ai/mcp, com OAuth 2.1 e escopos granulares, sem gravar token, e cobre canais, templates, chat bubble e link direto.
 ---
 
 # Conectar a Ockto
@@ -90,6 +90,28 @@ Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra canal
 
 Template aprovado é o caminho para falar com o cliente fora da janela de 24h. O envio do template na conversa fica no console (https://console.ockto.ai/chat). Excluir template também.
 
+## Chat bubble e link direto
+
+Widgets de atendimento. Usam `integrations:read` e `integrations:write`, os mesmos escopos de canal e template. Não devolvem URL de mídia assinada. A resposta não traz o código para embutir nem o endereço público: copie no console (https://console.ockto.ai). O avatar do chat bubble também fica no console.
+
+O `funcionario_id` vem de `listar_funcionarios` (skill `funcionarios`).
+
+### Chat bubble
+
+- `listar_chat_bubbles` (`integrations:read`, só lê). Sem argumento. Cada item traz `id`, `nome`, `ativo`, `funcionario_id`, `nome_exibicao`, `tema`, `posicao`, `salvar_contato` e `dominios_permitidos`.
+- `obter_chat_bubble` (`integrations:read`, só lê). Exige `bubble_id`.
+- `criar_chat_bubble` (`integrations:write`; cada chamada cria outro). Exige `nome` (até 200), `funcionario_id` e `nome_exibicao` (até 200). Opcionais: `mensagem_boas_vindas` (até 1000; ao enviar, a boas-vindas fica ligada), `tema` (`light` ou `dark`), `posicao` (`left` ou `right`), `salvar_contato` e `dominios_permitidos` (lista de textos dos sites em que o widget pode aparecer; não é a lista de `listar_dominios`). Sem avatar. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e o funcionário e avisa que o widget passa a poder ser embutido. Mostre isso ao usuário. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
+- `atualizar_chat_bubble` (`integrations:write`). Exige `bubble_id` e ao menos um campo entre os de criar e `ativo`. Sem URL de mídia. Confirmação em dois passos. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
+- `excluir_chat_bubble` (`integrations:write`, destrutiva). O widget deixa de responder. Exige `bubble_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e avisa que o widget deixa de responder. A segunda repete o mesmo `bubble_id` com `codigo_confirmacao`. 120 segundos, uso único.
+
+### Link direto
+
+- `listar_links_diretos` (`integrations:read`, só lê). Sem argumento. Cada item traz `id`, `nome`, `ativo`, `funcionario_id`, `salvar_contato`, `coletar_nome`, `coletar_whatsapp` e `coletar_email`.
+- `obter_link_direto` (`integrations:read`, só lê). Exige `link_id`.
+- `criar_link_direto` (`integrations:write`; cada chamada cria outro). Exige `nome` (até 200) e `funcionario_id`. Opcionais: `salvar_contato`, `coletar_nome`, `coletar_whatsapp` e `coletar_email`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e o funcionário. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
+- `atualizar_link_direto` (`integrations:write`). Exige `link_id` e ao menos um campo, inclusive `ativo`. Confirmação em dois passos. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
+- `excluir_link_direto` (`integrations:write`, destrutiva). O endereço deixa de abrir o chat. Exige `link_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e esse efeito. A segunda repete o mesmo `link_id` com `codigo_confirmacao`. 120 segundos, uso único.
+
 ## Fora do MCP
 
 Não há ferramenta para isto. Mande o usuário ao console (https://console.ockto.ai):
@@ -110,6 +132,7 @@ Não há ferramenta para isto. Mande o usuário ao console (https://console.ockt
 - enviar template de WhatsApp na conversa (janela de 24h fechada)
 - conteúdo HTML, CSS e JavaScript da página (o editor da Ockto)
 - pixel manual com script
+- avatar do chat bubble, o código para embutir e o endereço público do link direto
 - anexo e mídia na conversa
 
 Responder, transferir, atribuir, fechar, reabrir e marcar conversa como lida estão na skill `conversas`. Membros, limites do plano, saldo e extrato de créditos estão na skill `organizacao`. Páginas, formulários externos e leitura de domínios estão na skill `paginas`. Pixels de integração estão na skill `pixels`.

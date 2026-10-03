@@ -138,3 +138,13 @@ excluir_pixel
 desassociar_pixel_jornada
 listar_pixels_jornada
 listar_jornadas_pixel
+listar_chat_bubbles
+obter_chat_bubble
+criar_chat_bubble
+atualizar_chat_bubble
+excluir_chat_bubble
+listar_links_diretos
+obter_link_direto
+criar_link_direto
+atualizar_link_direto
+excluir_link_direto

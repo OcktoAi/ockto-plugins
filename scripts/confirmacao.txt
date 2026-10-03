@@ -35,3 +35,9 @@ atualizar_pixel
 associar_pixel_jornadas
 excluir_pixel
 desassociar_pixel_jornada
+criar_chat_bubble
+atualizar_chat_bubble
+excluir_chat_bubble
+criar_link_direto
+atualizar_link_direto
+excluir_link_direto
