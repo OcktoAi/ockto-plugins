@@ -21,3 +21,6 @@ excluir_nota_contato
 excluir_memoria_contato
 importar_contatos
 responder_conversa
+vincular_funcionario_canal
+desvincular_funcionario_canal
+criar_template_whatsapp

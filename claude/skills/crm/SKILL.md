@@ -34,7 +34,7 @@ Nas listagens, `pagina` começa em 1 e `limite` tem teto 50. A resposta traz `to
 O id da jornada e o id da coluna vêm de `obter_jornada` (skill `jornadas`).
 
 - `listar_leads_jornada` (`leads:read`, só lê) lista os leads de uma jornada, com os mesmos filtros de `listar_contatos` (inclusive `etapa_id`). Exige `jornada_id`. `pagina` e `limite` (padrão 20, teto 50).
-- `adicionar_contato_jornada` (`leads:write`, pode disparar webhook e mensagem fora da organização) vincula um contato que já existe. Exige `contato_id`, `jornada_id` e `coluna_id`.
+- `adicionar_contato_jornada` (`leads:write`; pode falar com sistema fora da organização) vincula um contato que já existe. Se ele já está nesta jornada, move a coluna. Exige `contato_id`, `jornada_id` e `coluna_id`. Entrar na etapa pode disparar as ações dela: webhook de entrada e, se veio de outra etapa, webhook de saída; mensagem de WhatsApp por template aprovado; envio a Mailchimp e ActiveCampaign quando o contato tem e-mail e a etapa tem a integração ativa. Para mover um contato que já está na jornada entre colunas, prefira `mover_lead`.
 - `criar_lead_jornada` (`leads:write`, pode enviar template de WhatsApp) cria o contato já na coluna e pode disparar automações dessa coluna. Exige `jornada_id` e `coluna_id`.
 - `mover_lead` (`leads:write`, pode disparar webhook e mensagem inicial) move o contato para outra coluna da mesma jornada. Exige `contato_id`, `jornada_id` e `coluna_destino_id`.
 - `fixar_lead` (`leads:write`) fixa ou desafixa o contato no topo da coluna. Exige `contato_id`, `jornada_id` e `fixado`.
