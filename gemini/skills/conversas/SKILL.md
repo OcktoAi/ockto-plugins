@@ -37,7 +37,7 @@ A primeira chamada recusa, sem código e sem enviar, quando:
 
 A janela vale para WhatsApp, Instagram, Facebook e Messenger. Fecha com 24 horas ou mais desde a última mensagem do cliente. Sem essa data, com data vazia ou inválida, conta como fechada. Os outros canais não têm essa janela; a descrição diz isso.
 
-Fora da janela, pare. O template sai no console, na conversa (https://console.ockto.ai/chat). Não há ferramenta de template.
+Fora da janela, pare. Texto livre não sai. O caminho é um template de WhatsApp já aprovado pela Meta. Criar esse template e sincronizar o status estão na skill `conectar` (`criar_template_whatsapp`, `sincronizar_templates_whatsapp`). Enquanto a Meta não aprovar, o template não pode ser usado. O envio do template nesta conversa fica no console (https://console.ockto.ai/chat).
 
 ## Responsável, arquivo e leitura
 
@@ -50,7 +50,7 @@ Nenhuma destas envia mensagem ao cliente e nenhuma pede `codigo_confirmacao`.
 - `reabrir_conversa` (`conversations:write`; repetir não grava de novo) devolve `status` `open`. Exige `conversa_id`. Se já está aberta, `alterado` falso. Reabrir não envia texto e não abre a janela de 24h.
 - `marcar_conversa_como_lida` (`conversations:write`; repetir não acumula) marca a leitura para o membro da sessão. Não muda responsável nem status. Exige `conversa_id`.
 
-Ligar funcionário de IA a um canal de atendimento continua no console (https://console.ockto.ai). Não invente essa ferramenta.
+Trocar o funcionário de IA de um canal já conectado está na skill `conectar`. Conectar e desconectar o canal ficam no console (https://console.ockto.ai).
 
 ## Métricas
 
