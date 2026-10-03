@@ -34,10 +34,12 @@ Deixe client id e client secret em branco.
 `businesses:read` `businesses:write` `businesses:delete`
 `automations:read` `automations:write` `automations:activate` `automations:delete`
 `conversations:read` `conversations:write` `integrations:read` `integrations:write` `analytics:read` `billing:read` `organization:read`
+`pages:read` `pages:write` `pages:publish` `pages:delete`
+`pixels:read` `pixels:write` `pixels:delete` `domains:read`
 
 Cada ferramenta exige o escopo dela. Sem esse escopo a chamada é recusada. Escopo não substitui a permissão do membro.
 
-`integrations:write` e `billing:read` só entram num consentimento novo, como `conversations:write` e `organization:read`. Quem já conectou não os recebe na renovação do token. Se a ferramenta não estiver na lista do cliente, ou a chamada responder `insufficient_scope` (a ferramenta exige o escopo), reconecte o MCP e aceite esses escopos na tela de consentimento.
+`pages:read`, `pages:write`, `pages:publish`, `pages:delete`, `pixels:read`, `pixels:write`, `pixels:delete` e `domains:read` só entram num consentimento novo, como `integrations:write`, `billing:read`, `conversations:write` e `organization:read`. Chat bubble e link direto usam `integrations:read` e `integrations:write`. Quem já conectou não recebe escopo novo na renovação do token. Se a ferramenta não estiver na lista do cliente, ou a chamada responder `insufficient_scope`, reconecte o MCP e aceite esses escopos na tela de consentimento.
 
 ## Canais e conexões
 
@@ -54,7 +56,7 @@ Valor mascarado `***` (ou URL `://***@`) não é o segredo. Não o reenvie para 
 
 ## Confirmação em dois passos
 
-A skill de cada ferramenta diz quando a primeira chamada só descreve. Entram aí `responder_conversa`, `vincular_funcionario_canal`, `desvincular_funcionario_canal`, `criar_template_whatsapp`, ativar e reativar automação, importar contatos, sincronizar fonte de cérebro, resetar mapeamento de nó e as ferramentas de exclusão, remoção e desvínculo. `sincronizar_templates_whatsapp` não pede código. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
+A skill de cada ferramenta diz quando a primeira chamada só descreve. Entram aí `responder_conversa`, `vincular_funcionario_canal`, `desvincular_funcionario_canal`, `criar_template_whatsapp`, `publicar_pagina`, `despublicar_pagina`, `criar_formulario_externo`, `atualizar_formulario_externo`, `criar_pixel`, `atualizar_pixel`, `associar_pixel_jornadas`, `criar_chat_bubble`, `atualizar_chat_bubble`, `criar_link_direto`, `atualizar_link_direto`, ativar e reativar automação, importar contatos, sincronizar fonte de cérebro, resetar mapeamento de nó e as ferramentas de exclusão, remoção e desvínculo. `sincronizar_templates_whatsapp`, `criar_pagina` e `atualizar_pagina` não pedem código. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
 
 1. Chame sem `codigo_confirmacao`. A resposta descreve o efeito e devolve um código.
 2. Mostre esse efeito ao usuário. Só então chame de novo com os mesmos argumentos e `codigo_confirmacao` igual ao código recebido.

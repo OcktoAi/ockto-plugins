@@ -42,9 +42,11 @@ Não coloque client id, secret nem header. A descoberta OAuth parte de `https://
 
 ## Skills
 
-- `conectar` — OAuth, escopos, funcionário do canal e templates
+- `conectar` — OAuth, escopos, funcionário do canal, templates, chat bubble e link direto
 - `crm` — contatos, canais, notas e leads nas jornadas
 - `jornadas` — jornadas e etapas
+- `paginas` — páginas, formulários externos e domínios
+- `pixels` — pixels de integração
 - `funcionarios` — funcionários de IA e cérebros
 - `automacoes` — rascunho, ativação e execuções
 - `conversas` — ler, responder, transferir e métricas
