@@ -52,7 +52,7 @@ Valor mascarado `***` (ou URL `://***@`) não é o segredo. Não o reenvie para 
 
 ## Confirmação em dois passos
 
-`ativar_automacao` e as ferramentas de exclusão, remoção e desvínculo não executam na primeira chamada. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
+A skill de cada ferramenta diz quando a primeira chamada só descreve. Entram aí ativar e reativar automação, importar contatos, sincronizar fonte de cérebro, resetar mapeamento de nó e as ferramentas de exclusão, remoção e desvínculo. O argumento `codigo_confirmacao` não entra no schema da ferramenta: o servidor acrescenta.
 
 1. Chame sem `codigo_confirmacao`. A resposta descreve o efeito e devolve um código.
 2. Mostre esse efeito ao usuário. Só então chame de novo com os mesmos argumentos e `codigo_confirmacao` igual ao código recebido.
@@ -62,12 +62,18 @@ Não invente o código e não reutilize código de outra ferramenta.
 
 ## Fora do MCP
 
-Não há ferramenta para isto. Mande o usuário ao console da Ockto (https://ockto.ai):
+Não há ferramenta para isto. Mande o usuário ao console (https://console.ockto.ai):
 
 - credencial, token, senha e fluxo de autorização OAuth
+- upload de documento ou áudio para um cérebro
+- teste de nó de automação
 - SQL livre
-- equipe, papéis, convites, conta, MFA e senha
-- escrita de billing
-- domínios
 - exportação em massa
+- domínios
+- equipe, papéis, convites, conta, MFA e senha
+- billing
+- agente de biblioteca com visibilidade pública
+- eventos de agenda
 - super-admin
+
+O MCP também não responde conversa, não transfere conversa, não liga funcionário a canal, não mexe em páginas, não mostra saldo de créditos e não lista membros. Não invente ferramenta para isso.

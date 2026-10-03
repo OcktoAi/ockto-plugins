@@ -33,7 +33,7 @@ O escopo é um limite a mais sobre o papel do membro na organização. Não subs
 
 - OAuth 2.1 com PKCE no cliente. O access token fica no cliente, não em arquivo do plugin.
 - Não coloque `Authorization`, client secret nem bearer em `mcp.json`, `.mcp.json` ou `gemini-extension.json`.
-- Exclusão, remoção, desvínculo e `ativar_automacao` confirmam em dois passos. O argumento é `codigo_confirmacao`: a primeira chamada só descreve e devolve um código; a segunda repete os mesmos argumentos com esse código. O código expira em 120 segundos e vale uma vez.
+- Ativar e reativar automação, importar contatos, sincronizar fonte, resetar mapeamento e as ferramentas de exclusão, remoção e desvínculo confirmam em dois passos quando a skill diz isso. O argumento é `codigo_confirmacao`: a primeira chamada só descreve e devolve um código; a segunda repete os mesmos argumentos com esse código. O código expira em 120 segundos e vale uma vez.
 - A conexão pode ser revogada na Ockto.
 
 ## Suporte
