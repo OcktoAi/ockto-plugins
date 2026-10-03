@@ -46,5 +46,6 @@ gemini mcp add --transport http ockto https://mcp.ockto.ai/mcp
 - `jornadas` — jornadas e etapas
 - `funcionarios` — funcionários de IA e cérebros
 - `automacoes` — rascunho, ativação e execuções
-- `conversas` — conversas e métricas
+- `conversas` — ler, responder, transferir e métricas
+- `organizacao` — membros e limites do plano
 - `negocios` — marcas da organização
