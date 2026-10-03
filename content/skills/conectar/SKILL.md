@@ -84,7 +84,7 @@ No WhatsApp com jornada padrão, a etapa WhatsApp deixa de ter responsável de I
 
 Exige `canal_id`, `nome`, `idioma` (por exemplo `pt_BR`), `categoria` e `corpo`. `categoria` só aceita `MARKETING` ou `UTILITY`. Opcionais: `cabecalho`, `rodape`, `exemplos` (lista de textos das variáveis `{{1}}`, `{{2}}` do corpo) e `botoes`.
 
-Botões: no máximo 3. Cada item tem `tipo` (`QUICK_REPLY` ou `URL`) e `texto`. `URL` exige `url`. Botão de URL não combina com outro botão. A API recusa nome acima de 40 caracteres, corpo acima de 1024, cabeçalho ou rodapé acima de 60, texto de botão acima de 25, URL acima de 2000 ou inválida, e mais de 20 exemplos. O nome é normalizado para minúsculas e `_`.
+Botões: no máximo 3. Cada item tem `tipo` (`QUICK_REPLY` ou `URL`) e `texto`. `URL` exige `url`. Botão de URL não combina com outro botão. A API recusa nome acima de 40 caracteres, corpo acima de 1024, cabeçalho ou rodapé acima de 60, texto de botão acima de 25, URL acima de 2000 ou inválida, e mais de 20 exemplos. A confirmação mostra o nome enviado. A API grava minúsculas, sem acento, com espaço virando `_`.
 
 Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra canal, nome, idioma, categoria e o corpo entre aspas, mais cabeçalho, rodapé e botões quando houver, e avisa que o template vai para revisão da Meta. Mostre o corpo exato ao usuário e espere o ok. A segunda chamada repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 
