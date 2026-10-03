@@ -23,7 +23,7 @@ Deixe client id e client secret em branco.
 - Cursor: Customize, servidor MCP com essa URL, ou o plugin `ockto`.
 - Claude Code: `claude mcp add --transport http ockto https://mcp.ockto.ai/mcp`, ou o plugin.
 - Claude.ai, Cowork e Claude Desktop: Customize → Connectors → Add custom connector. Em plano Team ou Enterprise, um Owner adiciona antes em Organization settings → Connectors → Add → Custom → Web.
-- ChatGPT: Settings → Apps → Create, com developer mode, endpoint `https://mcp.ockto.ai/mcp` e autenticação OAuth.
+- ChatGPT: Developer mode em Settings → Security and login, depois ChatGPT Plugins → + com nome, descrição e `https://mcp.ockto.ai/mcp`. Crie a conexão e conclua o OAuth. O developer mode depende do plano e da política do workspace.
 - Gemini CLI: a extensão usa `httpUrl`. O CLI faz o OAuth na conexão. Não declare API key em `settings`.
 
 ## Escopos
