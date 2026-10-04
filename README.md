@@ -13,7 +13,7 @@ Submeter a um diretório público é passo humano. Este repositório não public
 | Cursor | Plugin em [`cursor/`](cursor/) | Copie `cursor/` para `~/.cursor/plugins/local/ockto` e recarregue. Em Team/Enterprise, um admin importa o repo em Dashboard → Plugins & MCPs. |
 | Claude Code | Plugin em [`claude/`](claude/) | `/plugin marketplace add OcktoAi/ockto-plugins` e `/plugin install ockto@ockto`. |
 | Claude.ai, Cowork, Desktop | Guia, sem manifest | Customize → Connectors → Add custom connector, URL `https://mcp.ockto.ai/mcp`. |
-| ChatGPT e Codex | Pacote em [`chatgpt/`](chatgpt/) | Marketplace do repo em [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). Conector avulso: Settings → Apps → Create. |
+| ChatGPT e Codex | Pacote em [`chatgpt/`](chatgpt/) | Marketplace do repo em [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). Conector avulso: Developer mode em Settings → Security and login, depois ChatGPT Plugins → +. Detalhe em [`chatgpt/README.md`](chatgpt/README.md). |
 | Gemini CLI | Extensão em [`gemini/`](gemini/) | `gemini extensions install https://github.com/OcktoAi/ockto-plugins` depois da release `v*`. Sem release, o caminho local de `gemini/`. |
 
 O detalhe de cada um está no README da pasta. Na primeira conexão, o membro escolhe a organização e os escopos. Deixe client id e client secret em branco.
