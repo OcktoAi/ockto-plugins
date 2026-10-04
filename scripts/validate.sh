@@ -95,14 +95,21 @@ if claude_plugin:
         if not icon_path.is_file():
             errors.append(f"claude/.claude-plugin/plugin.json: ícone não existe em {icon_path.relative_to(root)}")
         else:
-            svg = icon_path.read_text(encoding="utf-8")
-            try:
-                ET.fromstring(svg)
-            except ET.ParseError as exc:
-                errors.append(f"{icon_path.relative_to(root)}: SVG inválido ({exc})")
-            lowered = svg.lower()
-            if any(token in lowered for token in ("<style", "class=", "<script", "href=", "url(")):
-                errors.append(f"{icon_path.relative_to(root)}: SVG tem <style>, class=, <script> ou referência externa")
+            suffix = icon_path.suffix.lower()
+            if suffix == ".png":
+                if not icon_path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"):
+                    errors.append(f"{icon_path.relative_to(root)}: PNG inválido")
+            elif suffix == ".svg":
+                svg = icon_path.read_text(encoding="utf-8")
+                try:
+                    ET.fromstring(svg)
+                except ET.ParseError as exc:
+                    errors.append(f"{icon_path.relative_to(root)}: SVG inválido ({exc})")
+                lowered = svg.lower()
+                if any(token in lowered for token in ("<style", "class=", "<script", "href=", "url(")):
+                    errors.append(f"{icon_path.relative_to(root)}: SVG tem <style>, class=, <script> ou referência externa")
+            else:
+                errors.append(f"{icon_path.relative_to(root)}: ícone precisa ser PNG ou SVG")
 
 if chatgpt_plugin and chatgpt_plugin.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
     errors.append("chatgpt/plugin.json: $schema divergente do Agent Plugins 1.0.0")

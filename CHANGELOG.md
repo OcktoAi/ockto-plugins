@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.2
+
+- Ícone do plugin unificado no isotipo da Ockto em todos os clientes.
+
 ## 2.5.1
 
 - O caminho do conector avulso no ChatGPT passou a ser Developer mode em Settings → Security and login, depois ChatGPT Plugins → + (README e skill `conectar`).
