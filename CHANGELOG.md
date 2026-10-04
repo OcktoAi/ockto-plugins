@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.1
+
+- O caminho do conector avulso no ChatGPT passou a ser Developer mode em Settings → Security and login, depois ChatGPT Plugins → + (README e skill `conectar`).
+
 ## 2.5.0
 
 - Skills acompanham as 150 ferramentas do MCP: páginas e formulários externos, pixels de integração, chat bubble, link direto e leitura de domínios.
