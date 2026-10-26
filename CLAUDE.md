@@ -11,7 +11,7 @@ Tudo aqui é produto publicado nas lojas, não documentação interna: os `SKILL
 
 ## Produto
 
-A Ockto é uma plataforma de **automação, gestão de jornadas e atendimento com IA**, agnóstica de mercado, negócio e área. O mesmo cliente a usa para vendas, atendimento, suporte, agendamento, onboarding, pós-venda, cobrança ou qualquer outro processo.
+A Ockto é uma plataforma de **automação, atendimento com IA, gestão de contatos (CRM) e gestão de jornadas**, agnóstica de mercado, negócio e área. O mesmo cliente a usa para vendas, atendimento, suporte, agendamento, onboarding, pós-venda, cobrança ou qualquer outro processo.
 
 ## Fonte da verdade
 
@@ -31,7 +31,7 @@ O código é a única fonte da verdade. Os nomes de ferramentas e escopos citado
 | valor | valor do negócio |
 | movimentações | negociações |
 | valor movimentado | receita |
-| Contatos, Jornadas | CRM como nome de módulo |
+| Contatos, Jornadas (nomes de tela, permissão e código) | CRM como nome de tela ou de permissão, como em "Leads (CRM)" |
 
 "Cliente" só se usa para a empresa que contrata a Ockto. A pessoa que conversa com a organização é sempre "contato".
 
