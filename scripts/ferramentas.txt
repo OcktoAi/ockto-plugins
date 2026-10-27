@@ -19,7 +19,6 @@ criar_contato
 criar_etapa_jornada
 criar_funcionario
 criar_jornada
-criar_lead_jornada
 criar_negocio
 desvincular_cerebro_funcionario
 excluir_automacao
@@ -29,7 +28,7 @@ excluir_etapa_jornada
 excluir_funcionario
 excluir_jornada
 excluir_negocio
-fixar_lead
+fixar_contato
 listar_funcionarios
 listar_contatos
 listar_conversas
@@ -40,7 +39,7 @@ listar_integracoes
 listar_jornadas
 listar_negocios
 listar_tipos_no_automacao
-mover_lead
+mover_contato
 obter_automacao
 obter_cerebro
 obter_contato
@@ -52,14 +51,14 @@ obter_metricas
 obter_negocio
 remover_canal_contato
 remover_fonte_cerebro
-remover_lead_jornada
+remover_contato_da_jornada
 reordenar_etapas_jornada
 vincular_cerebro_funcionario
 editar_automacao
 estimar_custo_automacao
 listar_gatilhos_automacao
 previsualizar_cron
-listar_leads_jornada
+listar_contatos_da_jornada
 listar_notas_contato
 obter_timeline_contato
 listar_memorias_contato

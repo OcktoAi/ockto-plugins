@@ -20,7 +20,7 @@ O detalhe de cada um está no README da pasta. Na primeira conexão, o membro es
 
 ## Escopos
 
-`leads:read` `leads:write` `leads:delete`
+`contacts:read` `contacts:write` `contacts:delete`
 `journeys:read` `journeys:write` `journeys:delete`
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`

@@ -40,7 +40,7 @@ O developer mode depende do plano e da política do workspace. Em workspace, o a
 ## Skills
 
 - `conectar` — OAuth, escopos, funcionário do canal, templates, chat bubble e link direto
-- `crm` — contatos, canais, notas e leads nas jornadas
+- `contatos` — contatos, canais e notas, e os contatos nas jornadas
 - `jornadas` — jornadas e etapas
 - `paginas` — páginas, formulários externos e domínios
 - `pixels` — pixels de integração

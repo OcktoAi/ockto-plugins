@@ -37,7 +37,7 @@ O código é a única fonte da verdade. Os nomes de ferramentas e escopos citado
 
 ## Transição
 
-As skills ainda citam nomes antigos do MCP (por exemplo `criar_lead_jornada`, `mover_lead`, os escopos `leads:*` e a pasta `skills/crm/`), que estão sendo trocados com compatibilidade, conforme o plano em `ockto-api/docs/planos/vocabulario-agnostico/PLANO.md`. As skills só mudam depois que o `ockto-mcp` novo estiver em produção.
+As skills já usam os nomes novos do MCP (`contacts:*`, `mover_contato`, `criar_contato` com jornada, skill `contatos`), conforme o plano em `ockto-api/docs/planos/vocabulario-agnostico/PLANO.md`. Esta versão só é publicada depois que o `ockto-mcp` novo estiver em produção.
 
 ## Validação
 
