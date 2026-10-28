@@ -35,10 +35,6 @@ O código é a única fonte da verdade. Os nomes de ferramentas e escopos citado
 
 "Cliente" só se usa para a empresa que contrata a Ockto. A pessoa que conversa com a organização é sempre "contato".
 
-## Transição
-
-As skills já usam os nomes novos do MCP (`contacts:*`, `mover_contato`, `criar_contato` com jornada, skill `contatos`), conforme o plano em `ockto-api/docs/planos/vocabulario-agnostico/PLANO.md`. Esta versão só é publicada depois que o `ockto-mcp` novo estiver em produção.
-
 ## Validação
 
 ```bash
