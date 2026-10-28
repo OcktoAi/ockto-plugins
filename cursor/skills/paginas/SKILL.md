@@ -5,7 +5,7 @@ description: Consulta e altera páginas e formulários externos das jornadas, pu
 
 # Páginas, formulários e domínios
 
-A organização é a do consentimento. O `jornada_id` vem de `listar_jornadas` ou `obter_jornada` (skill `jornadas`). Leads na etapa ficam na skill `crm`.
+A organização é a do consentimento. O `jornada_id` vem de `listar_jornadas` ou `obter_jornada` (skill `jornadas`). Contatos na etapa ficam na skill `contatos`.
 
 Se a ferramenta não aparecer, ou a chamada responder `insufficient_scope`, reconecte o MCP e consinta de novo. Os escopos são `pages:read`, `pages:write`, `pages:publish`, `pages:delete` e `domains:read`. A renovação do token não acrescenta escopo que o consentimento antigo não gravou. O passo a passo está na skill `conectar`. Escopo não substitui a permissão do membro.
 
@@ -14,7 +14,7 @@ Leituras de página não devolvem HTML, CSS, JavaScript, dados do editor nem scr
 ## Páginas
 
 - `listar_paginas` (`pages:read`, só lê) lista as páginas de uma jornada. Exige `jornada_id`.
-- `obter_pagina` (`pages:read`, só lê) lê uma página. Exige `pagina_id`. A resposta traz `id`, `jornada_id`, `nome`, `descricao`, `caminho`, `url`, `status`, `publicada`, `externa`, `dominio_id`, `etapa_id`, `no_id`, `visitas`, `leads` e `visitantes`.
+- `obter_pagina` (`pages:read`, só lê) lê uma página. Exige `pagina_id`. A resposta traz `id`, `jornada_id`, `nome`, `descricao`, `caminho`, `url`, `status`, `publicada`, `externa`, `dominio_id`, `etapa_id`, `no_id`, `visitas`, `envios_formulario` e `visitantes`.
 - `criar_pagina` (`pages:write`; cada chamada cria outra) cria a página só com nome, caminho e descrição. Não publica e não envia HTML. Exige `jornada_id`, `nome` (até 200) e `caminho` (caminho público, por exemplo `/captura`). `descricao` é opcional (até 500). Não pede `codigo_confirmacao`.
 - `atualizar_pagina` (`pages:write`) altera nome e/ou descrição. Exige `pagina_id` e ao menos `nome` ou `descricao`. Não muda caminho, status, publicação nem HTML. Não pede `codigo_confirmacao`.
 
@@ -34,7 +34,7 @@ Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta descreve a p
 
 ## Excluir página
 
-`excluir_pagina` (`pages:delete`, destrutiva). Exige `pagina_id`. Se a página tem etapa (`etapa_id`), a etapa é apagada e os leads que estão nela saem da jornada. O contato continua existindo. Sem etapa, nenhum lead sai. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta diz qual dos dois casos é. Mostre isso ao usuário. A segunda repete o mesmo `pagina_id` com `codigo_confirmacao`. 120 segundos, uso único.
+`excluir_pagina` (`pages:delete`, destrutiva). Exige `pagina_id`. Se a página tem etapa (`etapa_id`), a etapa é apagada e os contatos que estão nela saem da jornada. O contato continua existindo. Sem etapa, nenhum contato sai. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta diz qual dos dois casos é. Mostre isso ao usuário. A segunda repete o mesmo `pagina_id` com `codigo_confirmacao`. 120 segundos, uso único.
 
 ## Formulários externos
 
@@ -48,7 +48,7 @@ O snippet não traz segredo: o envio vai para a rota pública de submit.
 
 - `atualizar_formulario_externo` (`pages:write`; URL nova pede screenshot). Exige `formulario_id` e ao menos um campo: `nome`, `url`, `texto_botao`, `redirect_url`, `incluir_email` ou `ativo`. `ativo` falso faz o formulário deixar de aceitar envios. Confirmação em dois passos. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 
-- `excluir_formulario_externo` (`pages:delete`, destrutiva). Exige `formulario_id`. Se o formulário tem etapa, a etapa é apagada e os leads que estão nela saem da jornada. O contato continua. Sem etapa, nenhum lead sai. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta diz qual dos dois casos é. A segunda repete o mesmo `formulario_id` com `codigo_confirmacao`. 120 segundos, uso único.
+- `excluir_formulario_externo` (`pages:delete`, destrutiva). Exige `formulario_id`. Se o formulário tem etapa, a etapa é apagada e os contatos que estão nela saem da jornada. O contato continua. Sem etapa, nenhum contato sai. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta diz qual dos dois casos é. A segunda repete o mesmo `formulario_id` com `codigo_confirmacao`. 120 segundos, uso único.
 
 ## Domínios
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.6.0
+
+- Contato no lugar de lead em todas as skills. A skill `crm` passou a se chamar `contatos`.
+- Ferramentas com nome novo: `mover_contato`, `fixar_contato`, `remover_contato_da_jornada` e `listar_contatos_da_jornada`. `criar_lead_jornada` entrou em `criar_contato`, que aceita `jornada_id` e `coluna_id` para criar o contato já numa etapa. Os nomes antigos continuam respondendo por um tempo, mas saem do MCP.
+- Escopos `contacts:read`, `contacts:write` e `contacts:delete` no lugar de `leads:*`. Conexão antiga continua valendo; a renovação do token troca os nomes.
+- Métricas da jornada: recorte `movimentacoes` (antes `negociacoes`) e `progresso`. Etapa com `resultado` `sucesso` ou `perda` conclui ou encerra o contato na jornada.
+- Palavras-chave e descrição curta sem cara de segmento único: automação, atendimento, contatos e jornadas.
+
 ## 2.5.2
 
 - Ícone do plugin unificado no isotipo da Ockto em todos os clientes.
