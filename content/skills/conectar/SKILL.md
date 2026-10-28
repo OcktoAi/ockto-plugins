@@ -28,7 +28,7 @@ Deixe client id e client secret em branco.
 
 ## Escopos
 
-`leads:read` `leads:write` `leads:delete`
+`contacts:read` `contacts:write` `contacts:delete`
 `journeys:read` `journeys:write` `journeys:delete`
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`

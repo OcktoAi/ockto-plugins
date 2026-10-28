@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ockto",
-  "version": "2.5.2",
+  "version": "2.6.0",
   "description": "Conecta o ChatGPT e o Codex ao MCP da Ockto para consultar e alterar a organização do membro autenticado.",
   "author": {
     "name": "Ockto",
@@ -10,12 +10,12 @@
   "homepage": "https://ockto.ai",
   "repository": "https://github.com/OcktoAi/ockto-plugins",
   "license": "MIT",
-  "keywords": ["ockto", "crm", "jornadas", "automacoes", "mcp"],
+  "keywords": ["ockto", "atendimento", "automacoes", "contatos", "jornadas", "crm", "mcp"],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Ockto",
-        "shortDescription": "CRM, jornadas e automações",
+        "shortDescription": "Automação, contatos e jornadas",
         "longDescription": "Consulta e altera contatos, jornadas, automações, funcionários de IA, cérebros, negócios, conversas e métricas da organização autenticada no MCP da Ockto.",
         "developerName": "Ockto",
         "category": "Productivity",
@@ -27,7 +27,7 @@
         "logo": "./assets/logo.png",
         "defaultPrompt": [
           "Liste os contatos recentes da minha organização na Ockto.",
-          "Mostre as jornadas e quantos leads há em cada etapa."
+          "Mostre as jornadas e quantos contatos há em cada etapa."
         ]
       }
     }
