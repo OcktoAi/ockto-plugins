@@ -33,13 +33,13 @@ Deixe client id e client secret em branco.
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`
 `automations:read` `automations:write` `automations:activate` `automations:delete`
-`conversations:read` `conversations:write` `integrations:read` `integrations:write` `analytics:read` `billing:read` `organization:read`
+`conversations:read` `conversations:write` `integrations:read` `integrations:write` `integrations:delete` `analytics:read` `billing:read` `organization:read`
 `pages:read` `pages:write` `pages:publish` `pages:delete`
 `pixels:read` `pixels:write` `pixels:delete` `domains:read`
 
 Cada ferramenta exige o escopo dela. Sem esse escopo a chamada é recusada. Escopo não substitui a permissão do membro.
 
-`pages:read`, `pages:write`, `pages:publish`, `pages:delete`, `pixels:read`, `pixels:write`, `pixels:delete` e `domains:read` só entram num consentimento novo, como `integrations:write`, `billing:read`, `conversations:write` e `organization:read`. Chat bubble e link direto usam `integrations:read` e `integrations:write`. Quem já conectou não recebe escopo novo na renovação do token. Se a ferramenta não estiver na lista do cliente, ou a chamada responder `insufficient_scope`, reconecte o MCP e aceite esses escopos na tela de consentimento.
+`pages:read`, `pages:write`, `pages:publish`, `pages:delete`, `pixels:read`, `pixels:write`, `pixels:delete` e `domains:read` só entram num consentimento novo, como `integrations:write`, `integrations:delete`, `billing:read`, `conversations:write` e `organization:read`. Chat bubble e link direto usam `integrations:read` e `integrations:write`; excluir usa `integrations:delete`. Quem já conectou não recebe escopo novo na renovação do token. Se a ferramenta não estiver na lista do cliente, ou a chamada responder `insufficient_scope`, reconecte o MCP e aceite esses escopos na tela de consentimento.
 
 ## Canais e conexões
 
@@ -94,7 +94,7 @@ Template aprovado é o caminho para falar com o cliente fora da janela de 24h. O
 
 ## Chat bubble e link direto
 
-Widgets de atendimento. Usam `integrations:read` e `integrations:write`, os mesmos escopos de canal e template. Não devolvem URL de mídia assinada. A resposta não traz o código para embutir nem o endereço público: copie no console (https://console.ockto.ai). O avatar do chat bubble também fica no console.
+Widgets de atendimento. Usam `integrations:read` e `integrations:write`, os mesmos escopos de canal e template. Excluir usa `integrations:delete`: quem conectou antes desse escopo não vê `excluir_chat_bubble` nem `excluir_link_direto` até reconectar e consentir de novo. Não devolvem URL de mídia assinada. A resposta não traz o código para embutir nem o endereço público: copie no console (https://console.ockto.ai). O avatar do chat bubble também fica no console.
 
 O `funcionario_id` vem de `listar_funcionarios` (skill `funcionarios`).
 
@@ -104,7 +104,7 @@ O `funcionario_id` vem de `listar_funcionarios` (skill `funcionarios`).
 - `obter_chat_bubble` (`integrations:read`, só lê). Exige `bubble_id`.
 - `criar_chat_bubble` (`integrations:write`; cada chamada cria outro). Exige `nome` (até 200), `funcionario_id` e `nome_exibicao` (até 200). Opcionais: `mensagem_boas_vindas` (até 1000; ao enviar, a boas-vindas fica ligada), `tema` (`light` ou `dark`), `posicao` (`left` ou `right`), `salvar_contato` e `dominios_permitidos` (lista de textos dos sites em que o widget pode aparecer; não é a lista de `listar_dominios`). Sem avatar. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e o funcionário e avisa que o widget passa a poder ser embutido. Mostre isso ao usuário. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 - `atualizar_chat_bubble` (`integrations:write`). Exige `bubble_id` e ao menos um campo entre os de criar e `ativo`. Sem URL de mídia. Confirmação em dois passos. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
-- `excluir_chat_bubble` (`integrations:write`, destrutiva). O widget deixa de responder. Exige `bubble_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e avisa que o widget deixa de responder. A segunda repete o mesmo `bubble_id` com `codigo_confirmacao`. 120 segundos, uso único.
+- `excluir_chat_bubble` (`integrations:delete`, destrutiva). O widget deixa de responder. Exige `bubble_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e avisa que o widget deixa de responder. A segunda repete o mesmo `bubble_id` com `codigo_confirmacao`. 120 segundos, uso único.
 
 ### Link direto
 
@@ -112,7 +112,7 @@ O `funcionario_id` vem de `listar_funcionarios` (skill `funcionarios`).
 - `obter_link_direto` (`integrations:read`, só lê). Exige `link_id`.
 - `criar_link_direto` (`integrations:write`; cada chamada cria outro). Exige `nome` (até 200) e `funcionario_id`. Opcionais: `salvar_contato`, `coletar_nome`, `coletar_whatsapp` e `coletar_email`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e o funcionário. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
 - `atualizar_link_direto` (`integrations:write`). Exige `link_id` e ao menos um campo, inclusive `ativo`. Confirmação em dois passos. A segunda repete os mesmos argumentos com `codigo_confirmacao`. 120 segundos, uso único.
-- `excluir_link_direto` (`integrations:write`, destrutiva). O endereço deixa de abrir o chat. Exige `link_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e esse efeito. A segunda repete o mesmo `link_id` com `codigo_confirmacao`. 120 segundos, uso único.
+- `excluir_link_direto` (`integrations:delete`, destrutiva). O endereço deixa de abrir o chat. Exige `link_id`. Confirmação em dois passos. Sem `codigo_confirmacao` a ferramenta mostra o nome e esse efeito. A segunda repete o mesmo `link_id` com `codigo_confirmacao`. 120 segundos, uso único.
 
 ## Fora do MCP
 
