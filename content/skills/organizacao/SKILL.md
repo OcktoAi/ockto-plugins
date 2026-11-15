@@ -9,7 +9,7 @@ A organização é a do consentimento. Membros e limites só leem e não recebem
 
 Se uma delas não aparecer na lista, ou a chamada disser que falta `organization:read` ou `billing:read` (`insufficient_scope`), reconecte o MCP e consinta de novo. A renovação do token não acrescenta escopo que o consentimento antigo não gravou. O passo a passo está na skill `conectar`.
 
-- `listar_membros_organizacao` (`organization:read`, só lê) lista os membros. Cada item traz `id`, `usuario_id`, `nome`, `email`, `papel` e `status`. Não traz telefone, convite, MFA nem avatar. Para `transferir_conversa_para_humano` e para `atribuir_responsavel_conversa` com `tipo` `user` (skill `conversas`), o id é `usuario_id`. O `id` do membro não entra nessas ferramentas.
+- `listar_membros_organizacao` (`organization:read`, só lê) lista os membros. Cada item traz `id`, `usuario_id`, `nome`, `email`, `papel` (`id`, `name` e `description`), `dono` (`true` para o dono da organização) e `status`. Não traz telefone, convite, MFA nem avatar. Para `transferir_conversa_para_humano` e para `atribuir_responsavel_conversa` com `tipo` `user` (skill `conversas`), o id é `usuario_id`. O `id` do membro não entra nessas ferramentas.
 
 O `email` é dado pessoal. Mostre o nome, e o e-mail só para distinguir homônimos. Não copie a lista de e-mails para mensagem ao cliente, arquivo ou outra ferramenta.
 
