@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.7.0
+
+- Escopo `integrations:delete`. Conexão antiga precisa reconectar e consentir de novo para excluir chat bubble e link direto: `excluir_chat_bubble` e `excluir_link_direto` passam a exigir esse escopo e somem da lista até o consentimento novo.
+- `listar_membros_organizacao` traz o nome e o e-mail de cada membro, o papel com `id`, `name` e `description`, e `dono`.
+
 ## 2.6.0
 
 - Contato no lugar de lead em todas as skills. A skill `crm` passou a se chamar `contatos`.
