@@ -25,7 +25,7 @@ O detalhe de cada um está no README da pasta. Na primeira conexão, o membro es
 `assistants:read` `assistants:write` `assistants:delete`
 `businesses:read` `businesses:write` `businesses:delete`
 `automations:read` `automations:write` `automations:activate` `automations:delete`
-`conversations:read` `conversations:write` `integrations:read` `integrations:write` `analytics:read` `billing:read` `organization:read`
+`conversations:read` `conversations:write` `integrations:read` `integrations:write` `integrations:delete` `analytics:read` `billing:read` `organization:read`
 `pages:read` `pages:write` `pages:publish` `pages:delete`
 `pixels:read` `pixels:write` `pixels:delete` `domains:read`
 
